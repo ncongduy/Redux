@@ -1,20 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
+import { Provider } from "react-redux";
 import { App } from "./App/App";
 import { store } from "./App/store";
 import reportWebVitals from "./reportWebVitals";
 
-const render = () => {
-  ReactDOM.render(
-    <App state={store.getState()} dispatch={store.dispatch} />,
-    document.getElementById("root")
-  );
-};
+// use <Provider> of react-redux, we do not render() and subscribe()
+// do not need to use pros and pros drilling
 
-render();
-
-store.subscribe(render);
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById("root")
+);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

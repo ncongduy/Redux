@@ -2,8 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { selectSearchTerm } from "../searchTerm/searchTermSlice.js";
 
 // create slice reducer and action creators by using createSlice()
-
-export const favoriteRecipesSlice = createSlice({
+export const favoriteRecipesReducer = createSlice({
   name: "favoriteRecipes",
   initialState: [],
   reducers: {
@@ -16,12 +15,13 @@ export const favoriteRecipesSlice = createSlice({
   },
 });
 
-export const { addRecipe, removeRecipe } = favoriteRecipesSlice.actions;
+// export action creators
+export const { addRecipe, removeRecipe } = favoriteRecipesReducer.actions;
 
-export default favoriteRecipesSlice.reducer;
+// export reducer
+export default favoriteRecipesReducer.reducer;
 
 // create selectors
-
 export const selectFavoriteRecipes = (state) => state.favoriteRecipes;
 
 export const selectFilteredFavoriteRecipes = (state) => {
